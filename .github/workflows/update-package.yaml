@@ -18,7 +18,7 @@ on:
       hex_port:
         description: Port the Hex repository listens on
         type: number
-        required: true
+        required: false
     secrets:
       HEX_PRIVATE_KEY:
         description: PEM-encoded signing key
@@ -41,8 +41,8 @@ jobs:
       - name: Install BEAM
         uses: erlef/setup-beam@v1
         with:
-          otp-version: '24.2'
-          elixir-version: '1.13.3'
+          otp-version: '27'
+          elixir-version: '1.18.4'
           version-type: strict
       - name: Checkout lib
         uses: actions/checkout@v3
@@ -68,7 +68,7 @@ jobs:
       - name: Add Hex repo to Mix
         run: |
           mix hex.repo add ${{ inputs.hex_repo_name }} \
-            https://${{ secrets.HEX_REPO_GHACTIONS_USER }}:${{ secrets.HEX_REPO_GHACTIONS_PASSWORD }}@${{ inputs.hex_domain }}:${{ inputs.hex_port }} \
+            https://${{ secrets.HEX_REPO_GHACTIONS_USER }}:${{ secrets.HEX_REPO_GHACTIONS_PASSWORD }}@${{ inputs.hex_domain }} \
             --public-key=hex_repo/public/public_key
       - name: Do build
         run: |

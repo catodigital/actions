@@ -41,8 +41,8 @@ jobs:
       - name: Install BEAM
         uses: erlef/setup-beam@v1
         with:
-          otp-version: '27'
-          elixir-version: '1.18.4'
+          otp-version: '27.3.4.6'
+          elixir-version: '1.18.4-otp-27'
           version-type: strict
       - name: Checkout lib
         uses: actions/checkout@v3

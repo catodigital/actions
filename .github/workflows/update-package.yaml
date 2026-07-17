@@ -36,7 +36,7 @@ on:
 jobs:
   build_package:
     name: Build Package
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Install BEAM
         uses: erlef/setup-beam@v1

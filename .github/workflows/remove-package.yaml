@@ -36,13 +36,13 @@ on:
 jobs:
   build_package:
     name: Build Package
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Install BEAM
         uses: erlef/setup-beam@v1
         with:
-          otp-version: '24.1.6'
-          elixir-version: '1.13.3'
+          otp-version: '27.3.4.6'
+          elixir-version: '1.18.4-otp-27'
       - name: Checkout lib
         uses: actions/checkout@v3
         with:
